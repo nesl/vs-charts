@@ -1,0 +1,70 @@
+@visualSTATE @RuleBase @Format2 "NoName"
+
+@Directives
+
+  @visualSTATE 5-4-0-1283;
+  @Date 2007-07-19;
+  @Time 18:14:40;
+
+
+
+@Declaration
+
+  @ActionFunction
+    VS_VOID Red_LED_TOGGLE(),
+    VS_VOID packetmake_send();
+
+
+@Definition
+
+  @Constant
+    VS_INT Val = 4;
+
+  @Event
+    Init(),
+    Recieve(VS_INT msg_data);
+
+
+@Implementation
+
+  @TopStateMachine Topstate1 =
+
+    @State
+      @Initial _InitialState0
+        [[ Pos440 = "59 26 79 46 114689" ]],
+      Base
+        [[ Pos440 = "147 55 273 146 16 1 1638401" ]],
+      Packet_Sent
+        [[ Pos440 = "132 217 288 329 16 1 1638401" ]],
+      @Final Final1
+        [[ Pos440 = "602 367 667 389 16385" ]];
+
+    @StateRegion
+      @OffPage Region1 (_InitialState0, Base, Packet_Sent, Final1)
+        [[ Pos440 = "0 0 308 259", TextDisplayNote = "Preserve", 
+           TextDisplayState = "Preserve", TextDisplayTransDesc = "Preserve", 
+           View = "2 2 7" ]];
+
+    @Entry;
+
+    @Exit;
+
+    @Do;
+
+    @InternalRule;
+
+    @TransitionRule
+      @NoEvent @Src _InitialState0 : @Dest Base
+        [[ Pos440 = "86 -5 166 25 1 809894017 20 5 166 25 13 0" ]],
+      Init() @Src Base : @Dest Packet_Sent #packetmake_send()
+        [[ Pos440 = "218 163 351 198 0 809894017 71 91 88 0" ]],
+      Recieve(msg_data) @Src Packet_Sent [|msg_data == Val|] : @Dest Final1
+         #Red_LED_TOGGLE()
+        [[ Pos440 = "349 209 570 277 0 809894016 156 53 0 13" ]];
+
+    @TerminationRule;
+
+    [[ Pos440 = "127 16 435 291 16 1 114689" ]]
+
+  @End;
+

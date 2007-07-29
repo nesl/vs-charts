@@ -1,0 +1,72 @@
+[Header]
+Filetype=visualSTATE Validator workspace
+Revision=2
+[ProjectSetup]
+ProjectFile=Project1.vsp
+AutoQueue=FALSE
+TimerMsg=TRUE
+PromptActions=TRUE
+Sender=00000000010000000000000001
+Sender_RL=0000000001000000FFFFFFFFFD
+Multiplier=01000000010000000000000002
+Multiplier_RL=0100000001000000FFFFFFFFFE
+NofBreakPoints=0
+[RealLink Setup]
+Plugin Module=
+Timeout=1852731203
+[Altia Properties]
+Timeout=8000
+Arguments=-xrm Altia*AltiaScene*background:#f7e400
+ResetAtConnect=1
+ResetOnReset=1
+[Altia Event Parameters]
+Sender.Init=0
+SE_RESET=0
+Multiplier.Init=0
+[Altia Action Parameters]
+Sender.Red_LED_TOGGLE=0
+Sender.packetmake_send=0
+[Trace Setup]
+Trace To=
+Trace Output=
+[Windows]
+nofSystemWnds=1
+nofEventWnds=1
+nofVariableWnds=0
+nofGuardWnds=0
+nofActionWnds=1
+nofSignalWnds=0
+nofTSF=0
+nofDynamicAnalyzeWnds=0
+nofStaticAnalyzeWnds=0
+[SystemWnd_0]
+WindowPlacement=2C0000000000000001000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7801000000000000F00200000802000092
+RealLink View=Off
+NofTrees=2
+Tree_0_System=Sender
+Tree_0_Topstate=Topstate1
+Tree_1_System=Multiplier
+Tree_1_Topstate=Topstate1
+OnlyCurrent=False
+ShowPrevious=False
+[EventWnd_0]
+WindowPlacement=2C0000000000000001000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000007801000008020000A0
+RealLink View=Off
+nofColumns=3
+ColumnData_0=00000000640000000100000065
+ColumnData_1=01000000640000000000000065
+ColumnData_2=02000000640000000100000067
+View Active Events=False
+Include Guards=True
+Global=Show
+Sender=Show
+Multiplier=Show
+Number of hidden Events=0
+[ActionWnd_0]
+WindowPlacement=2C0000000000000001000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF002000000000000680400000802000085
+RealLink View=Off
+nofColumns=2
+ColumnData_0=00000000640000000100000065
+ColumnData_1=01000000640000000100000066
+[Watch Window]
+Number of items=0

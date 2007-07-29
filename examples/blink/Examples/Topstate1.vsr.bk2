@@ -1,0 +1,120 @@
+@visualSTATE @RuleBase @Format2 "NoName"
+
+@Directives
+
+  @visualSTATE 5-4-0-1283;
+  @Date 2007-07-04;
+  @Time 02:28:31;
+
+
+
+@Declaration
+
+  @ActionFunction
+    VS_VOID LED_ALL_OFF()
+      [[ File = "C:\\Documents and Settings\\COMPAQ\\Desktop\\Blink\\Blink\\BlinkAction.c"
+          ]],
+    VS_VOID ToggleGREENLED()
+      [[ File = "C:\\Documents and Settings\\COMPAQ\\Desktop\\Blink\\Blink\\BlinkAction.c"
+          ]],
+    VS_VOID ToggleREDLED()
+      [[ File = "C:\\Documents and Settings\\COMPAQ\\Desktop\\Blink\\Blink\\BlinkAction.c"
+          ]],
+    VS_INT8 stop_timer(VS_UINT8 tid)
+      [[ File = "C:\\Documents and Settings\\COMPAQ\\Desktop\\Blink\\Blink\\BlinkAction.c"
+          ]],
+    VS_INT8 try_timer(VS_UINT8 tid, VS_UINT32 interval, VS_UINT8 type)
+      [[ File = "C:\\Documents and Settings\\COMPAQ\\Desktop\\Blink\\Blink\\BlinkAction.c"
+          ]];
+
+
+@Definition
+
+  @Constant
+    VS_UINT8 BLINK_ID = 0,
+    VS_UINT8 TIMER_REPEAT = 0,
+    VS_UINT32 TIMER_TICKS = 1024;
+
+  @Event
+    Final(),
+    Init(),
+    TimeOut();
+
+
+@Implementation
+
+  @StateMachine StateMachineSpec_0 =
+
+    @State
+      Green_On
+        [[ Pos440 = "584 373 681 457 16 1 1638401" ]],
+      Green_Off
+        [[ Pos440 = "465 188 557 269 16 1 1638401" ]],
+      @Initial _InitialState0
+        [[ Pos440 = "415 164 435 184 114689" ]];
+
+    @StateRegion
+      Region1 (Green_On, Green_Off, _InitialState0)
+        [[ Pos440 = "0 0 334 343" ]];
+
+    @Entry
+      #ToggleREDLED();
+
+    @Exit
+      #LED_ALL_OFF();
+
+    @Do;
+
+    @InternalRule;
+
+    @TransitionRule
+      TimeOut() @Src Green_On : @Dest Green_Off #ToggleGREENLED()
+        [[ Pos440 = "404 406 575 465 1 809894017 0 25 495 388 11 81" ]],
+      TimeOut() @Src Green_Off : @Dest Green_On #ToggleGREENLED()
+        [[ Pos440 = "564 218 736 271 1 809894017 82 81 655 294 82 0" ]],
+      @NoEvent @Src _InitialState0 : @Dest Green_Off
+        [[ Pos440 = "390 137 470 167 0 809894017 20 8 470 167 7 0" ]];
+
+    @TerminationRule;
+
+  @End;
+
+  @TopStateMachine Topstate1 =
+
+    @State
+      Red_Off
+        [[ Pos440 = "161 171 265 242 16 1 1638401" ]],
+      Red_On = StateMachineSpec_0
+        [[ Pos440 = "403 98 737 497 56 1 1638401" ]],
+      @Initial _InitialState1
+        [[ Pos440 = "91 107 111 127 114689" ]];
+
+    @StateRegion
+      @OffPage LED (Red_Off, Red_On, _InitialState1)
+        [[ Pos440 = "0 0 372 296", TextDisplayNote = "Preserve", 
+           TextDisplayState = "Preserve", TextDisplayTransDesc = "Preserve", 
+           View = "2 2 7" ]];
+
+    @Entry;
+
+    @Exit;
+
+    @Do;
+
+    @InternalRule;
+
+    @TransitionRule
+      Init() @Src Red_Off : @Dest Red_On #try_timer(BLINK_ID, TIMER_TICKS, 
+        TIMER_REPEAT)
+        [[ Pos440 = "187 120 416 181 0 809894016 104 11 0 112" ]],
+      Final() @Src Red_On : @Dest Red_Off #stop_timer(BLINK_ID)
+        [[ Pos440 = "146 267 304 351 0 809894016 0 277 104 55" ]],
+      @NoEvent @Src _InitialState1 : @Dest Red_Off #LED_ALL_OFF()
+        [[ Pos440 = "111 90 269 119 0 809894016 20 12 2 0" ]];
+
+    @TerminationRule;
+
+    [[ Pos440 = "176 49 548 361 16 1 114689" ]]
+
+  @End;
+

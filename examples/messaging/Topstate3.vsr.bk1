@@ -1,0 +1,65 @@
+@visualSTATE @RuleBase @Format2 "NoName"
+
+@Directives
+
+  @visualSTATE 5-4-0-1283;
+  @Date 2007-07-20;
+  @Time 04:58:08;
+
+
+
+@Declaration
+
+  @ActionFunction
+    VS_VOID resend(VS_VOIDPTR param1);
+
+
+@Definition
+
+  @Event
+    GetMsg(VS_VOIDPTR msg),
+    Init2();
+
+
+@Implementation
+
+  @TopStateMachine Topstate1 =
+
+    @State
+      @Initial _InitialState0
+        [[ Pos440 = "26 16 46 36 114689" ]],
+      State1
+        [[ Pos440 = "96 60 188 140 16 1 1638401" ]],
+      Wait
+        [[ Pos440 = "311 64 412 153 16 1 1638401" ]],
+      @Final Final1
+        [[ Pos440 = "372 247 422 262 16385" ]];
+
+    @StateRegion
+      @OffPage Region1 (_InitialState0, State1, Wait, Final1)
+        [[ Pos440 = "0 0 291 260", TextDisplayNote = "Preserve", 
+           TextDisplayState = "Preserve", TextDisplayTransDesc = "Preserve", 
+           View = "2 2 7" ]];
+
+    @Entry;
+
+    @Exit;
+
+    @Do;
+
+    @InternalRule;
+
+    @TransitionRule
+      @NoEvent @Src _InitialState0 : @Dest State1
+        [[ Pos440 = "31 24 111 54 1 809894017 20 6 111 24 15 0" ]],
+      Init2() @Src State1 : @Dest Wait
+        [[ Pos440 = "188 55 268 85 0 809894016 92 25 0 29" ]],
+      GetMsg(msg) @Src Wait : @Dest Final1 #resend(msg)
+        [[ Pos440 = "367 167 536 206 0 809894016 49 89 4 0" ]];
+
+    @TerminationRule;
+
+    [[ Pos440 = "86 20 377 296 16 1 114689" ]]
+
+  @End;
+

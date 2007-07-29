@@ -1,0 +1,50 @@
+@visualSTATE @Project @Format2 "Project"
+
+@SCCInfo
+  @Provider = "",
+  @Project = "",
+  @LocalPath = ".",
+  @AuxPath = "";
+
+@Directives
+
+  @visualSTATE 5-4-0-1283;
+  @Date 2007-07-05;
+  @Time 17:36:41;
+  [[ Colors = "0X000000 0X0000FF 0X00FF00 0XFF0000 0X00FFFF 0XFF00FF 0XFFFF00 0XFFFFFF 0X000080 0X008000 0X800000 0X008080 0X800080 0X808000 0XC0C0C0 0X808080"
+     , DropSignalQueueIfFull = "0", FontEx1 = "-13 400 0 255 \"Arial\"", 
+     FontEx2 = "-13 700 0 255 \"Arial\"", FontEx3 = "-11 400 0 255 \"Arial\"", 
+     FontEx4 = "-11 700 0 255 \"Arial\"", 
+     FontEx5 = "-13 400 0 255 \"Times New Roman\"", 
+     FontEx6 = "-13 700 0 255 \"Times New Roman\"", 
+     FontEx7 = "-11 400 0 255 \"Times New Roman\"", 
+     FontEx8 = "-11 700 0 255 \"Times New Roman\"", 
+     FooterLayout = "12 -13 400 0 \"Times New Roman\"", FooterLeft = "&FN", 
+     FooterRight = "&PN", HeaderCenter = "&NF", 
+     HeaderLayout = "12 -13 400 0 \"Times New Roman\"", 
+     PageLayout = "0 1 210 297 0 0 7 26", 
+     PrintSpecial = "1 -13 400 0 \"Times New Roman\"", 
+     Resolution = "3.779528 3.779528", TextDisplayNote = "Preserve", 
+     TextDisplayState = "Preserve", TextDisplayTransDesc = "Preserve", 
+     View = "2 2 7" ]]
+
+
+@System
+  Blink
+    [[ NOF_INSTANCES = "1", Pos440 = "10 10 130 130 1835010", 
+       SIGNAL_QUEUE_LENGTH = "0", 
+       SystemGUID = "6FFA5A96-7D81-4075-972F-FEB1FCCF2A1C", 
+       TextDisplayNote = "Preserve", TextDisplayState = "Preserve", 
+       TextDisplayTransDesc = "Preserve", View = "2 2 7" ]]
+
+    @File
+      File0 = ".\\Topstate1.vsr";
+
+    @End;
+
+
+@Declaration
+
+
+@Definition
+

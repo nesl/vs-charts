@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<NavigatorWorkspace Date="2007-07-19" Explanation="" Time="18:02:01">
+
+  <SourceControl SccAuxPath="" SccName="" SccPath="." SccProvider=""/>
+
+  <Project Active="true" ActiveSystem="Sender" File=".\Project1.vsp">
+    <Signature CheckSum="52b3 2115 5f54 24a4 1a35 c981" Version="50"/>
+    <Validator File=".\Project1.vws"/>
+    <OSEK APIType="0" ConfigApp="" Enabled="false" OILFile=""/>
+    <Report Creator="0" File=".\coder\vscoder.cre"/>
+  </Project>
+
+</NavigatorWorkspace>

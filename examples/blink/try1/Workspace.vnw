@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<NavigatorWorkspace Date="2007-07-18" Explanation="" Time="13:22:48">
+
+  <SourceControl SccAuxPath="" SccName="" SccPath="." SccProvider="visualSTATE MultiUser Management"/>
+
+  <Project Active="true" ActiveSystem="Blink" File="..\Examples\Project1.vsp">
+    <Signature CheckSum="eec3 de82 af1a 336a c517 09fc" Version="50"/>
+    <OSEK APIType="0" ConfigApp="" Enabled="false" OILFile=""/>
+    <Report Creator="0" File="..\Examples\coder\vscoder.cre"/>
+  </Project>
+
+</NavigatorWorkspace>
